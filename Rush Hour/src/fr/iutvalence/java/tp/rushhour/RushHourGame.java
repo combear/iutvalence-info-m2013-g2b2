@@ -1,17 +1,25 @@
 package fr.iutvalence.java.tp.rushhour;
 
-public class PartieDeRushHour
+/**
+ * Rush Hour game
+ * @author A. Combe, C. Jondet
+ *
+ */
+public class RushHourGame
 {
-	private ParkingDeRushHour parking;
+	/**
+	 * 
+	 */
+	private RushHourParking parking;
 	int nbdevoitures;
-	Voiture[] voitures;
-	Voiture voitureASortir;
+	Vehicle[] car;
+	Vehicle voitureASortir;
 
 	/**Création d'un objet PartieDeRushHour
 	 * @param parking
 	 * 
 	 */
-	public PartieDeRushHour(ParkingDeRushHour parking)
+	public RushHourGame(RushHourParking parking)
 	{
 		 this.parking = parking;
 		  
@@ -21,7 +29,7 @@ public class PartieDeRushHour
 	/**lance une partie de rush hour
 	 * 
 	 */
-	public void jouer()
+	public void play()
 	{
 		
 		
