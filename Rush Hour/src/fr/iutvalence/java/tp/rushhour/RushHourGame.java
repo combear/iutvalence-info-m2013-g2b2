@@ -8,25 +8,37 @@ package fr.iutvalence.java.tp.rushhour;
 public class RushHourGame
 {
 	/**
-	 * 
+	 * parking where all vehicle are going to be added
 	 */
 	private RushHourParking parking;
-	int nbdevoitures;
-	Vehicle[] car;
-	Vehicle voitureASortir;
+	/**
+	 * number of car in the game
+	 */
+	int numberOfCar;
+	/**
+	 * Array containing all the vehicle
+	 */
+	Vehicle[] vehicle;
+	/**
+	 * The car we need to free to win the game
+	 */
+	Vehicle vehicleToFree;
 
-	/**Création d'un objet PartieDeRushHour
-	 * @param parking
-	 * 
+
+	/**
+	 * Create a game of RushHour
+	 * @param parking : game's parking
 	 */
 	public RushHourGame(RushHourParking parking)
 	{
 		 this.parking = parking;
+		 this.vehicle = parking.getVehicle();
+		 this.vehicleToFree = parking.getVehicleToFree();
 		  
 	}
 	
 	
-	/**lance une partie de rush hour
+	/**launch a RushHour's game
 	 * 
 	 */
 	public void play()

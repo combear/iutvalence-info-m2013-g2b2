@@ -47,6 +47,28 @@ public class RushHourParking
 		this.vehicles[6]= new Vehicle(TypeOfCar.CAR, Vehicle.VERTICAL);
 		return vehicleToFree;
 	}
+
+
+
+
+	/**
+	 * Used to get the Array of vehicle of a parking
+	 * @return an array of vehicle
+	 */
+	public Vehicle[] getVehicle() {
+		return this.vehicles;
+	}
+
+
+
+
+	/**
+	 * Used to get the vehicle to free of a parking
+	 * @return the vehicle to free
+	 */
+	public Vehicle getVehicleToFree() {
+		return this.vehicleToFree;
+	}
 		
 
 	

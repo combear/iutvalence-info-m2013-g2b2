@@ -1,10 +1,15 @@
 package fr.iutvalence.java.tp.rushhour;
 
+/**
+ * The application RushHour
+ * @author A. Combe, C. Jondet
+ *
+ */
 public class Main
 {
 
 	/**
-	 * Point d'entrée de l'application Rush Hour
+	 * Where the application start
 	 * @param args
 	 */
 	public static void main(String[] args)
