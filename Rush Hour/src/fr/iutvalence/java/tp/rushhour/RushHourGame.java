@@ -38,9 +38,7 @@ public class RushHourGame
 	}
 	
 	
-	/**launch a RushHour's game
-	 * 
-	 */
+	/**launch a RushHour's game*/
 	public void play()
 	{
 		

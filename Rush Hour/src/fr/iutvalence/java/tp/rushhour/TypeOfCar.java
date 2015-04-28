@@ -6,12 +6,12 @@ package fr.iutvalence.java.tp.rushhour;
  */
 public enum TypeOfCar
 {
-	/**
-	 * Car 
-	 */
+	/**Car*/
 	CAR,
-	/**
-	 * Truck
-	 */
-	TRUCK;
+	
+	/**Truck*/
+	TRUCK,
+	
+	/**Vehicle part*/
+	PART;
 }

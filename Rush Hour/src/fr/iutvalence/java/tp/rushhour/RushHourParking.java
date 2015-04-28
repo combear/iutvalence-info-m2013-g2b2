@@ -15,12 +15,12 @@ public class RushHourParking
 	 */
 	private Vehicle[] vehicles;
 	private Vehicle vehicleToFree;
+	private int column;
+	private int line;
 	
 	
 	
-	/**
-	 * Constructor initialisating, creating and filling an object
-	 */
+	/**Constructor initialisating, creating and filling an object*/
 	public RushHourParking()
 	{
 		this.vehicles= new Vehicle[6];
@@ -28,8 +28,6 @@ public class RushHourParking
 		
 	}
 
-	
-	
 
 	/**
 	 * Create and place all vehicles in the array

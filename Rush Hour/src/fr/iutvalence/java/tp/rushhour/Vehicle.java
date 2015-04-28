@@ -3,30 +3,24 @@ package fr.iutvalence.java.tp.rushhour;
 /**
  * Class vehicle
  * @author A. Combe, C. Jondet
- *
  */
 public class Vehicle
 {
-	/**
-	 * vehicle horizontal
-	 */
+	/**vehicle horizontal*/
 	public static final boolean HORIZONTAL=false;
-	/**
-	 * vehicle vertical
-	 */
+	
+	/**vehicle vertical*/
 	public static final boolean VERTICAL=true;
 
-	/**
-	 * Size of the vehicle
-	 */
+	/** Size of the vehicle*/
 	private final TypeOfCar size;
-	/**
-	 * Orientation of the vehicle
-	 */
+	
+	
+	/**Orientation of the vehicle*/
 	private final boolean orientation;
 	
 	/**
-	 * Constructor for a Car object
+	 * Constructor for a Car object used as the head of the car
 	 * @param size : Size of the vehicle
 	 * @param orientation : orientation of vehicle (Horizontal or vertical)
 	 */
@@ -34,5 +28,12 @@ public class Vehicle
 	{ 
 		this.size=size;
 		this.orientation=orientation;
+	}
+	
+	/**Constructor for the other vehicle parts */
+	public Vehicle()
+	{
+		this.size=TypeOfCar.PART;
+		this.orientation=VERTICAL;
 	}
 }
