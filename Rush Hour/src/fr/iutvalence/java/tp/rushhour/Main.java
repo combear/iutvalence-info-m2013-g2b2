@@ -9,12 +9,12 @@ public class Main
 {
 
 	/**
-	 * Application's mais: creates a new game and plys it
+	 * Application's main: creates a new game and plays it
 	 * @param args command-line arguments (unused)
 	 */
 	public static void main(String[] args)
 	{
-		RushHourParking parking = new RushHourParking();
+		RushHourParking parking = new RushHourParking(6);
 		RushHourGame game = new RushHourGame(parking);
 	}
 

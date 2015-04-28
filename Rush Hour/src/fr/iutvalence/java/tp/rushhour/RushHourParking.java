@@ -22,21 +22,20 @@ public class RushHourParking
 	private Vehicle vehicleToRelease;
 	
 	
-	// TODO fix comment: telle how is the parking once created
+	
 	/**
-	 *
-	 * Constructor initialisating, creating and filling an object*/
-	public RushHourParking()
+	 * Create a parking with a certain number of vehicles and the vehicle to release
+	 * @param numberOfVehicles : total number of vehicles wanted in our parking
+	 */
+	public RushHourParking(int numberOfVehicles)
 	{
-		// TODO (think about it) where the vehicule come from?
-		this.vehicles= new Vehicle[6];
+		this.vehicles= new Vehicle[numberOfVehicles];
 		this.vehicleToRelease=this.addVehicles();
 		
 	}
 
-	// TODO fix comment: not so technical
 	/**
-	 * Create and place all vehicles in the array
+	 * Create and place vehicles and the vehicle to release in the parking
 	 * @return the vehicle to free
 	 */
 	private Vehicle addVehicles()
@@ -52,6 +51,7 @@ public class RushHourParking
 		return vehicleToFree;
 	}
 
+	//TODO VOIR LE PROBLEME DU NOMBRE DE VEHICLE + LE TABLEAU
 
 
 

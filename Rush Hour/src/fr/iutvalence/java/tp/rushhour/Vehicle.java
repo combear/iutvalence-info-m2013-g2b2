@@ -30,10 +30,4 @@ public class Vehicle
 		this.orientation=orientation;
 	}
 	
-	/**Constructor for the other vehicle parts */
-	public Vehicle()
-	{
-		this.size=TypeOfCar.PART;
-		this.orientation=VERTICAL;
-	}
 }

@@ -10,8 +10,5 @@ public enum TypeOfCar
 	CAR,
 	
 	/**Truck*/
-	TRUCK,
-	
-	/**Vehicle part*/
-	PART;
+	TRUCK;
 }
