@@ -9,8 +9,8 @@ public class Main
 {
 
 	/**
-	 * Where the application start
-	 * @param args
+	 * Application's mais: creates a new game and plys it
+	 * @param args command-line arguments (unused)
 	 */
 	public static void main(String[] args)
 	{

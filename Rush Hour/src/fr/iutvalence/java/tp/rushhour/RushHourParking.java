@@ -2,9 +2,9 @@ package fr.iutvalence.java.tp.rushhour;
 
 
 /**
- *  Parking representation containing a list of cars previously initialized .
+ *  This class represents the parking where a set of cars are jammed.
+ *  
  * @author A. Combe, C. Jondet
- *
  */
 public class RushHourParking
 {
@@ -14,26 +14,32 @@ public class RushHourParking
 	 * vehicles which are jammed on the parking
 	 */
 	private Vehicle[] vehicles;
-	private Vehicle vehicleToFree;
-	private int column;
-	private int line;
 	
 	
+	/**
+	 * the vehicle to be released (already contained in vehicule's array)
+	 */
+	private Vehicle vehicleToRelease;
 	
-	/**Constructor initialisating, creating and filling an object*/
+	
+	// TODO fix comment: telle how is the parking once created
+	/**
+	 *
+	 * Constructor initialisating, creating and filling an object*/
 	public RushHourParking()
 	{
+		// TODO (think about it) where the vehicule come from?
 		this.vehicles= new Vehicle[6];
-		this.vehicleToFree=this.addCars();
+		this.vehicleToRelease=this.addVehicles();
 		
 	}
 
-
+	// TODO fix comment: not so technical
 	/**
 	 * Create and place all vehicles in the array
 	 * @return the vehicle to free
 	 */
-	private Vehicle addCars()
+	private Vehicle addVehicles()
 	{
 		Vehicle vehicleToFree = new Vehicle(TypeOfCar.CAR, Vehicle.HORIZONTAL);
 		this.vehicles[0]= vehicleToFree;
@@ -65,7 +71,7 @@ public class RushHourParking
 	 * @return the vehicle to free
 	 */
 	public Vehicle getVehicleToFree() {
-		return this.vehicleToFree;
+		return this.vehicleToRelease;
 	}
 		
 

@@ -1,5 +1,6 @@
 package fr.iutvalence.java.tp.rushhour;
 
+// TODO detail comment (link to game rules)
 /**
  * Rush Hour game
  * @author A. Combe, C. Jondet
@@ -8,23 +9,22 @@ package fr.iutvalence.java.tp.rushhour;
 public class RushHourGame
 {
 	/**
-	 * parking where all vehicle are going to be added
+	 * parking where all vehicles are jammed
 	 */
 	private RushHourParking parking;
+	
 	/**
-	 * number of car in the game
-	 */
-	int numberOfCar;
-	/**
-	 * Array containing all the vehicle
+	 * Vehicles jammed on the parking
 	 */
 	Vehicle[] vehicle;
+	
 	/**
-	 * The car we need to free to win the game
+	 * The vehicle to release
 	 */
-	Vehicle vehicleToFree;
+	Vehicle vehicleToRelease;
 
 
+	// TODO fix comment (tell how is the game once created)
 	/**
 	 * Create a game of RushHour
 	 * @param parking : game's parking
@@ -33,8 +33,7 @@ public class RushHourGame
 	{
 		 this.parking = parking;
 		 this.vehicle = parking.getVehicle();
-		 this.vehicleToFree = parking.getVehicleToFree();
-		  
+		 this.vehicleToRelease = parking.getVehicleToFree();	  
 	}
 	
 	
