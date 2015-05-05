@@ -49,7 +49,7 @@ public class Vehicle
 	 */
 	public boolean isEmpty(int x, int y) throws OutOfRangeException
 	{
-		if (x>5 || y>5) throw new OutOfRangeException();
+		if (x>6 || y>6) throw new OutOfRangeException();
 		
 		if (this.horizontalHeadPosition==x || this.verticalHeadPosition==y)
 			return false;
