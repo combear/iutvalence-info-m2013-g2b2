@@ -6,6 +6,12 @@ package fr.iutvalence.java.tp.rushhour;
  */
 public class Vehicle
 {
+	/** The vehicle is impossible to move at the position wanted*/
+	public static final boolean IMPOSSIBLE_TO_MOVE=false;
+	
+	/** The vehicle were succesfully moved to the position wanted */
+	public static final boolean MOVED=true;
+	
 	/**vehicle horizontal*/
 	public static final boolean HORIZONTAL=false;
 	
@@ -20,10 +26,7 @@ public class Vehicle
 	private final boolean orientation;
 	
 	/** Head position for horizontal axis */
-	private int horizontalHeadPosition;
-	
-	/** Head position for vertical axis */
-	private int verticalHeadPosition;
+	private Position vehiclePosition;
 	
 
 	
@@ -36,8 +39,9 @@ public class Vehicle
 	{ 
 		this.vehicleType=vehicleType;
 		this.orientation=orientation;
-		this.horizontalHeadPosition=horizontalHeadPosition;
-		this.verticalHeadPosition=verticalHeadPosition;
+		this.vehiclePosition= new Position (horizontalHeadPosition,verticalHeadPosition);
+		
+		
 	}
 	
 	
@@ -47,30 +51,38 @@ public class Vehicle
 	 * @return true if the position (x,y) is empty, false is it's not.
 	 * @throws OutOfRangeException if we ask for a position out of the parking range
 	 */
-	public boolean isEmpty(int x, int y) throws OutOfRangeException
+	public boolean isEmpty(Position position) throws OutOfRangeException
 	{
-		if (x>6 || y>6) throw new OutOfRangeException();
+		if (position.getX()>6 || position.getY()>6) throw new OutOfRangeException();
 		
-		if (this.horizontalHeadPosition==x || this.verticalHeadPosition==y)
+		if (this.vehiclePosition.getX()==position.getX() || this.vehiclePosition.getY()==position.getY())
 			return false;
 		
 		if (this.vehicleType==VehicleType.CAR && this.orientation==HORIZONTAL)
-			if (this.verticalHeadPosition-1==y)
+			if (this.vehiclePosition.getY()-1==position.getY())
 				return false;
 		if (this.vehicleType==VehicleType.CAR && this.orientation==VERTICAL)
-			if (this.horizontalHeadPosition-1==x)
+			if (this.vehiclePosition.getX()-1==position.getX())
 				return false;
 		if (this.vehicleType==VehicleType.TRUCK && this.orientation==HORIZONTAL)
-			if (this.verticalHeadPosition-1==y && this.verticalHeadPosition-2==y)
+			if (this.vehiclePosition.getY()-1==position.getY() && this.vehiclePosition.getY()-2==position.getY())
 				return false;
 		if (this.vehicleType==VehicleType.TRUCK && this.orientation==VERTICAL)
-			if (this.horizontalHeadPosition-1==x && this.horizontalHeadPosition-2==x)
+			if (this.vehiclePosition.getX()-1==position.getX() && this.vehiclePosition.getX()-2==position.getX())
 				return false;
 		
 		return true;
-		
+	//TODO DEPLACER DANS PARKING	
 	}
 	
 	
+	/**
+	 * Update the vehicle position to destination
+	 * @param destination (x,y) position
+	 */
+	public void updatePosition(Position destination)
+	{
+		this.vehiclePosition= new Position(destination.getX(), destination.getY());
+	}
 	
 }
