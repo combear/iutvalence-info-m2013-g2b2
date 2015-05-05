@@ -12,17 +12,6 @@ public class RushHourGame
 	 * parking where all vehicles are jammed
 	 */
 	private RushHourParking parking;
-	
-	/**
-	 * Vehicles jammed on the parking
-	 */
-	Vehicle[] vehicle;
-	
-	/**
-	 * The vehicle to release
-	 */
-	Vehicle vehicleToRelease;
-
 
 	/**
 	 * Create a parking which is a set oh vehicle including the one to release
@@ -30,16 +19,14 @@ public class RushHourGame
 	 */
 	public RushHourGame(RushHourParking parking)
 	{
-		 this.parking = parking;
-		 this.vehicle = parking.getVehicle();
-		 this.vehicleToRelease = parking.getVehicleToFree();	  
+		 this.parking = parking;	  
 	}
 	
 	
 	/**launch a RushHour's game*/
 	public void play()
 	{
-		
+		// 
 		
 	}
 	
