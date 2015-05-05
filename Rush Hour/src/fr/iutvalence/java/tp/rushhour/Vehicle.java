@@ -13,20 +13,28 @@ public class Vehicle
 	public static final boolean VERTICAL=true;
 
 	/** Size of the vehicle*/
-	private final TypeOfCar size;
+	private final VehicleType vehicleType;
 	
 	
 	/**Orientation of the vehicle*/
 	private final boolean orientation;
 	
+	/** Head position for horizontal axis */
+	private int horizontalHeadPosition;
+	
+	/** Head position for vertical axis */
+	private int verticalHeadPosition;
+	
+
+	
 	/**
 	 * Constructor for a Car object used as the head of the car
-	 * @param size : Size of the vehicle
+	 * @param vehicleType : Size of the vehicle
 	 * @param orientation : orientation of vehicle (Horizontal or vertical)
 	 */
-	public Vehicle(TypeOfCar size, boolean orientation)
+	public Vehicle(VehicleType vehicleType, boolean orientation)
 	{ 
-		this.size=size;
+		this.vehicleType=vehicleType;
 		this.orientation=orientation;
 	}
 	
