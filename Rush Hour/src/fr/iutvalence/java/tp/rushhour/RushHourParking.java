@@ -33,7 +33,23 @@ public class RushHourParking
 		this.vehicleToRelease=vehicleToRelease;
 		
 	}
-
+	
+	
+	/**
+	 * @param x horizontal position axis
+	 * @param y vertical position axis
+	 * @return true if the position (x,y) is empty, false is it's not.
+	 * @throws OutOfRangeException if we ask for a position out of the parking range
+	 */
+	public boolean isEmpty(Position position) throws OutOfRangeException
+	{
+		if (position.getX()>6 || position.getY()>6) throw new OutOfRangeException();
+		
+		for(Vehicle vehicle:vehicles)
+		 if (vehicle.isOn(position)) return false;
+				
+		return true;
+	}
 	
 
 	//TODO VOIR LE PROBLEME DU NOMBRE DE VEHICLE + LE TABLEAU
