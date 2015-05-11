@@ -45,3 +45,12 @@
   *-----------------------*
 6 *   |   | D | D | D | E *
   *************************
+  
+  
+  
+  	Scanner sc = new Scanner(System.in);
+		System.out.println("Donnez les coordonnées de la tête de la voiture à deplacer puis la destination de cette tête (colonne,ligne) ");
+		String depart = sc.nextLine();
+		String destination =sc.nextLine();
+		System.out.println("Depart : " + depart +"  Arrivé souhaitée : "+ destination);
+		
