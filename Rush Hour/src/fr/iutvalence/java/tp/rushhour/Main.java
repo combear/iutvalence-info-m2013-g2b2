@@ -25,6 +25,7 @@ public class Main
 		
 		RushHourParking parking = new RushHourParking(vehicles, vehicleToFree);
 		RushHourGame game = new RushHourGame(parking);
+		game.play();
 	}
 
 }
