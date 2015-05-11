@@ -45,35 +45,7 @@ public class Vehicle
 	}
 	
 	
-	/**
-	 * @param x horizontal position axis
-	 * @param y vertical position axis
-	 * @return true if the position (x,y) is empty, false is it's not.
-	 * @throws OutOfRangeException if we ask for a position out of the parking range
-	 */
-	public boolean isEmpty(Position position) throws OutOfRangeException
-	{
-		if (position.getX()>6 || position.getY()>6) throw new OutOfRangeException();
-		
-		if (this.vehiclePosition.getX()==position.getX() || this.vehiclePosition.getY()==position.getY())
-			return false;
-		
-		if (this.vehicleType==VehicleType.CAR && this.orientation==HORIZONTAL)
-			if (this.vehiclePosition.getY()-1==position.getY())
-				return false;
-		if (this.vehicleType==VehicleType.CAR && this.orientation==VERTICAL)
-			if (this.vehiclePosition.getX()-1==position.getX())
-				return false;
-		if (this.vehicleType==VehicleType.TRUCK && this.orientation==HORIZONTAL)
-			if (this.vehiclePosition.getY()-1==position.getY() && this.vehiclePosition.getY()-2==position.getY())
-				return false;
-		if (this.vehicleType==VehicleType.TRUCK && this.orientation==VERTICAL)
-			if (this.vehiclePosition.getX()-1==position.getX() && this.vehiclePosition.getX()-2==position.getX())
-				return false;
-		
-		return true;
-	//TODO DEPLACER DANS PARKING	
-	}
+
 	
 	
 	/**
@@ -84,5 +56,31 @@ public class Vehicle
 	{
 		this.vehiclePosition= new Position(destination.getX(), destination.getY());
 	}
-	
+
+
+	/**
+	 * It says if there is a vehicle in the position
+	 * @param position: a position in  the parking
+	 * @return true if there is vehicles in the asked position and false is not
+	 */
+	public boolean isOn(Position position)
+	{
+		if (this.vehiclePosition.equals(position))
+			return true;
+		if (this.vehicleType==VehicleType.CAR && this.orientation==HORIZONTAL)
+	    	if (this.vehiclePosition.getX()-1==position.getX())
+	    		return true;
+		if (this.vehicleType==VehicleType.CAR && this.orientation==VERTICAL)
+			if (this.vehiclePosition.getY()-1==position.getY())
+				return true;
+		if (this.vehicleType==VehicleType.TRUCK && this.orientation==HORIZONTAL)
+			if (this.vehiclePosition.getX()-1==position.getX() && this.vehiclePosition.getX()-2==position.getX())
+				return true;
+		if (this.vehicleType==VehicleType.TRUCK && this.orientation==VERTICAL)
+			if (this.vehiclePosition.getY()-1==position.getY() && this.vehiclePosition.getY()-2==position.getY())
+				return true;
+		return false;
+		
+	}
+
 }
