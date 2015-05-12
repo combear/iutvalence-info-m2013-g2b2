@@ -11,6 +11,27 @@ public class Position
 		this.y = y;
 	}
 	
+	/**
+	 * Say if the position and the position where the method is called of are aligned
+	 * @param position the other position 
+	 * @param orientation the axis where we want to know the alignation
+	 * @return true if the position is aligned to the one where the method is called of
+	 */
+	public boolean isAligned(Position position, Orientation orientation)
+	{
+		if (orientation == Orientation.HORIZONTAL) 
+			if (this.getX()==position.getX()) return true;
+		if (orientation == Orientation.VERTICAL )
+			if (this.getY()==position.getY()) return true;
+		return false;
+	}
+	
+	public Position getNeighbourPosition(Orientation orientation, int positionIndex)
+	{
+	    if (orientation == Orientation.HORIZONTAL) return new Position(this.getX()+(1*positionIndex),getY());
+	    if (orientation == Orientation.VERTICAL) return new Position(this.getX(),getY()+(1*positionIndex));
+		return null;
+	}
 	
 	public int getX()
 	{
@@ -52,12 +73,7 @@ public class Position
 		return "Position [x=" + x + ", y=" + y + "]";
 	}
 
-	public Position getNeighbourPosition(Orientation orientation, int positionIndex)
-	{
-	    if (orientation == Orientation.HORIZONTAL) return new Position(this.getX()+(1*positionIndex),getY());
-	    if (orientation == Orientation.VERTICAL) return new Position(this.getX(),getY()+(1*positionIndex));
-		return null;
-	}
+
 	
 	
 }
