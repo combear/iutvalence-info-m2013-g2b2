@@ -36,6 +36,7 @@ public class RushHourParking
 	
 	
 	/**
+	 * Get if the position asked in parameter is empty or not
 	 * @param x horizontal position axis
 	 * @param y vertical position axis
 	 * @return true if the position (x,y) is empty, false is it's not.
@@ -52,7 +53,19 @@ public class RushHourParking
 	}
 	
 
-	//TODO VOIR LE PROBLEME DU NOMBRE DE VEHICLE + LE TABLEAU
+	/**
+	 * Get the vehicle on the position asked in parameter
+	 * @param position : a position where we want to know which vehicle is on
+	 * @return a vehicle if there is one, null if no vehicle at this position
+	 */
+	public Vehicle getVehicleOn(Position position)
+	{
+		for(Vehicle vehicle:vehicles)
+			if (vehicle.isOn(position)) 
+				return vehicle;
+		return null;
+	}
+
 
 
 	
