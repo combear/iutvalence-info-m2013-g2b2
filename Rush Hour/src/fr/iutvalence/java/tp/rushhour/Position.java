@@ -10,6 +10,8 @@ public class Position
 		this.x = x;
 		this.y = y;
 	}
+	
+	
 	public int getX()
 	{
 		return x;
@@ -48,6 +50,13 @@ public class Position
 	public String toString()
 	{
 		return "Position [x=" + x + ", y=" + y + "]";
+	}
+
+	public Position getNeighbourPosition(Orientation orientation, int positionIndex)
+	{
+	    if (orientation == Orientation.HORIZONTAL) return new Position(this.getX()+(1*positionIndex),getY());
+	    if (orientation == Orientation.VERTICAL) return new Position(this.getX(),getY()+(1*positionIndex));
+		return null;
 	}
 	
 	
