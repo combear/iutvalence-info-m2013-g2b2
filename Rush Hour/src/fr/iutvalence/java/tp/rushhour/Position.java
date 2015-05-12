@@ -1,9 +1,27 @@
 package fr.iutvalence.java.tp.rushhour;
 
+/**
+ * Position featured by a X(horizontal) and an Y(vertical)
+ * @author A. Combe, C. Jondet
+ *
+ */
 public class Position
 {
+	/**
+	 * horizontal
+	 */
 	private final int x;
+	
+	/**
+	 * vertical
+	 */
 	private final int y;
+	
+	/**
+	 * Create a position on the parking
+	 * @param x : horizontal position
+	 * @param y : vertical position
+	 */
 	public Position(int x, int y)
 	{
 		super();
@@ -26,6 +44,12 @@ public class Position
 		return false;
 	}
 	
+	/**
+	 * Say the position of the neighbour at the positionIndex away from the position where the method is called of
+	 * @param orientation : Orientation of the vehicle 
+	 * @param positionIndex : index from the head (position)
+	 * @return the position of the Neighbour position
+	 */
 	public Position getNeighbourPosition(Orientation orientation, int positionIndex)
 	{
 	    if (orientation == Orientation.HORIZONTAL) return new Position(this.getX()+(1*positionIndex),getY());
@@ -33,10 +57,18 @@ public class Position
 		return null;
 	}
 	
+	/**
+	 * used to get X
+	 * @return x, the horizontal position
+	 */
 	public int getX()
 	{
 		return x;
 	}
+	/**
+	 * used to get Y
+	 * @return y, the horizontal position
+	 */
 	public int getY()
 	{
 		return y;
