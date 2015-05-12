@@ -45,11 +45,24 @@ public class RushHourGame
 	}
 
 
-	private boolean isValid(Movement movement)
-	{
-		// TODO Auto-generated method stub
-		return false;
-	}
+//	private boolean isValid(Movement movement)
+//	{
+//		try {
+//			
+//			if (parking.isEmpty(movement.getStart()))
+//				return false;
+//			}
+//			catch (OutOfRangeException e)
+//			{
+//				e.printStackTrace();
+//			}
+//		Vehicle vehicleOn = parking.getVehicleOn(movement.getStart());
+//		if (vehicleOn.getVehicleType() == VehicleType.CAR)
+//			if (vehicleOn.getOrientation() == Vehicle.getOrientation()) 
+//				if (movement.getStart().getX() > movement.getEnding().getX())
+//					
+//			
+//	}
 
 
 	private boolean finished()
