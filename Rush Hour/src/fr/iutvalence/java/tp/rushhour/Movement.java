@@ -1,10 +1,24 @@
 package fr.iutvalence.java.tp.rushhour;
 
+/**
+ * Define movement by a start and an ending position
+ * @author A. Combe, C. Jondet */
 public class Movement
 {
+	/**
+	 * Start position
+	 */
 	private final Position start;
+	/**
+	 * End position
+	 */
 	private final Position ending;
 	
+	/**
+	 * Create movement
+	 * @param start : position of start
+	 * @param ending : position of end
+	 */
 	public Movement(Position start, Position ending)
 	{
 		super();
@@ -12,11 +26,19 @@ public class Movement
 		this.ending = ending;
 	}
 
+	/**
+	 * Getters of start position
+	 * @return start position
+	 */
 	public Position getStart()
 	{
 		return start;
 	}
 
+	/**
+	 * Getters of end position
+	 * @return end position
+	 */
 	public Position getEnding()
 	{
 		return ending;
