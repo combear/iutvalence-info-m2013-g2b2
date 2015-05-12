@@ -11,19 +11,13 @@ public class Vehicle
 	
 	/** The vehicle were succesfully moved to the position wanted */
 	public static final boolean MOVED=true;
-	
-	/**vehicle horizontal*/
-	public static final boolean HORIZONTAL=false;
-	
-	/**vehicle vertical*/
-	public static final boolean VERTICAL=true;
 
 	/** Size of the vehicle*/
 	private final VehicleType vehicleType;
 	
 	
 	/**Orientation of the vehicle*/
-	private final boolean orientation;
+	private final Orientation orientation;
 	
 	/** Head position for horizontal axis */
 	private Position vehiclePosition;
@@ -35,7 +29,7 @@ public class Vehicle
 	 * @param vehicleType : Size of the vehicle
 	 * @param orientation : orientation of vehicle (Horizontal or vertical)
 	 */
-	public Vehicle(VehicleType vehicleType, boolean orientation, int horizontalHeadPosition, int verticalHeadPosition)
+	public Vehicle(VehicleType vehicleType, Orientation orientation, int horizontalHeadPosition, int verticalHeadPosition)
 	{ 
 		this.vehicleType=vehicleType;
 		this.orientation=orientation;
@@ -54,7 +48,7 @@ public class Vehicle
 	 */
 	public void updatePosition(Position destination)
 	{
-		this.vehiclePosition= new Position(destination.getX(), destination.getY());
+		this.vehiclePosition= destination;
 	}
 
 
@@ -67,20 +61,44 @@ public class Vehicle
 	{
 		if (this.vehiclePosition.equals(position))
 			return true;
-		if (this.vehicleType==VehicleType.CAR && this.orientation==HORIZONTAL)
-	    	if (this.vehiclePosition.getX()-1==position.getX())
-	    		return true;
-		if (this.vehicleType==VehicleType.CAR && this.orientation==VERTICAL)
-			if (this.vehiclePosition.getY()-1==position.getY())
-				return true;
-		if (this.vehicleType==VehicleType.TRUCK && this.orientation==HORIZONTAL)
-			if (this.vehiclePosition.getX()-1==position.getX() && this.vehiclePosition.getX()-2==position.getX())
-				return true;
-		if (this.vehicleType==VehicleType.TRUCK && this.orientation==VERTICAL)
-			if (this.vehiclePosition.getY()-1==position.getY() && this.vehiclePosition.getY()-2==position.getY())
-				return true;
-		return false;
 		
+		for (int positionIndex=1;positionIndex<this.vehicleType.getLength();positionIndex++)
+		{
+			if (this.vehiclePosition.getNeighbourPosition(this.orientation, positionIndex).equals(position)) return true;
+		}
+		return false;
+//		if (this.vehicleType==VehicleType.CAR && this.orientation==Orientation.HORIZONTAL)
+//	    	if (this.vehiclePosition.getX()-1==position.getX())
+//	    		return true;
+//		if (this.vehicleType==VehicleType.CAR && this.orientation==Orientation.VERTICAL)
+//			if (this.vehiclePosition.getY()-1==position.getY())
+//				return true;
+//		if (this.vehicleType==VehicleType.TRUCK && this.orientation==Orientation.HORIZONTAL)
+//			if (this.vehiclePosition.getX()-1==position.getX() && this.vehiclePosition.getX()-2==position.getX())
+//				return true;
+//		if (this.vehicleType==VehicleType.TRUCK && this.orientation==Orientation.VERTICAL)
+//			if (this.vehiclePosition.getY()-1==position.getY() && this.vehiclePosition.getY()-2==position.getY())
+//				return true;
+//		return false;
+		
+	}
+
+
+
+
+
+	public VehicleType getVehicleType()
+	{
+		return vehicleType;
+	}
+
+
+
+
+
+	public Orientation getOrientation()
+	{
+		return orientation;
 	}
 
 }
