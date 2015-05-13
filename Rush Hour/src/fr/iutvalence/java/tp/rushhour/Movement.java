@@ -92,5 +92,11 @@ public class Movement
 		return null;
 	}
 	
+	public int getDelta(Orientation orientation)
+	{
+		if(orientation==Orientation.HORIZONTAL) return this.getEnding().getX()-this.getStart().getX();
+		if(orientation==Orientation.VERTICAL) return this.getEnding().getY()-this.getStart().getY();
+		return 0;
+	}
 	
 }
