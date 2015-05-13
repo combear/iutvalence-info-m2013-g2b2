@@ -84,6 +84,13 @@ public class Movement
 	{
 		return "Movement [start=" + start + ", ending=" + ending + "]";
 	}
+
+	public Orientation getOrientation()
+	{
+		if (this.start.getX()==this.ending.getX()) return Orientation.HORIZONTAL;
+		if (this.start.getY()==this.ending.getY()) return Orientation.VERTICAL;
+		return null;
+	}
 	
 	
 }
