@@ -149,7 +149,7 @@ public class RushHourGame
 					if (movement.getStart().getX() > movement.getEnding().getX())
 					
 					{
-						for(int movementIndex=(movement.getStart().getX())-1;movementIndex<movement.getEnding().getX();movementIndex--)
+						for(int movementIndex=(movement.getStart().getX())-2;movementIndex<movement.getEnding().getX();movementIndex--)
 						{
 							try {
 								if (parking.isEmpty(new Position(movementIndex,movement.getStart().getY()))) return false;
@@ -184,7 +184,7 @@ public class RushHourGame
 				if (movement.getStart().getY() > movement.getEnding().getY())
 				
 				{
-					for(int movementIndex=(movement.getStart().getY())-1;movementIndex<movement.getEnding().getY();movementIndex--)
+					for(int movementIndex=(movement.getStart().getY())-2;movementIndex<movement.getEnding().getY();movementIndex--)
 					{
 						try {
 							if (parking.isEmpty(new Position(movementIndex,movement.getStart().getX()))) return false;
