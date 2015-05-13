@@ -24,6 +24,15 @@ public class RushHourParking
 	
 	
 	/**
+	 * @return vehicle to release
+	 */
+	public Vehicle getVehicleToRelease()
+	{
+		return vehicleToRelease;
+	}
+
+
+	/**
 	 * Create a parking with a certain number of vehicles and the vehicle to release
 	 * @param numberOfVehicles : total number of vehicles wanted in our parking
 	 */
