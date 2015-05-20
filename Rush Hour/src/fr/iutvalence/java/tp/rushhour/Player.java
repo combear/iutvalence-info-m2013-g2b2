@@ -5,7 +5,7 @@ package fr.iutvalence.java.tp.rushhour;
  * @author A. Combe, C. Jondet
  *
  */
-public class Player
+public class Player implements PlayerInterface
 {
 	/**
 	 * Allows to send a new position 
