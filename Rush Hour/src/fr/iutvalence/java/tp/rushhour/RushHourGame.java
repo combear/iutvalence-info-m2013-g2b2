@@ -40,7 +40,7 @@ public class RushHourGame
 			while (true)
 			{
 				movement = this.player.getMovement();
-				if (this.isValid(movement))
+				if (this.processMovement(this.player.getMovement()))
 					break;
 			}
 
@@ -73,12 +73,18 @@ public class RushHourGame
 	 */
 	private boolean moveVehicle(Vehicle vehicleToMove, int delta)
 	{
-		
-		if (vehicleToMove.getOrientation() == Orientation.HORIZONTAL)
-			parking.isEmpty(new Position(movement.getStart().getX()-delta));
-		
-		moveVehicle(vehicleToMove, delta+1);
-			
+		if (delta>0) 
+		{
+			this.forward(vehicleToMove);
+			moveVehicle(vehicleToMove, delta-1);
+			return true;
+		}
+		if (delta<0)
+		{
+			this.backward(vehicleToMove);
+			moveVehicle(vehicleToMove, delta+1);
+			return true;
+		}
 		return false;
 	}
 
@@ -90,9 +96,71 @@ public class RushHourGame
 	private boolean forward(Vehicle vehicleToMove)
 	{
 		if (vehicleToMove.getOrientation()== Orientation.HORIZONTAL)
-			parking.isEmpty(position)
+			try
+			{
+				if (parking.isEmpty(new Position(vehicleToMove.getVehiclePosition().getX()+1,vehicleToMove.getVehiclePosition().getY())))
+				{
+					vehicleToMove.updatePosition(new Position(vehicleToMove.getVehiclePosition().getX()+1,vehicleToMove.getVehiclePosition().getY()));
+					return true;
+				}
+			} catch (OutOfRangeException e)
+			{
+				e.printStackTrace();
+			}
+		if (vehicleToMove.getOrientation()== Orientation.VERTICAL)
+			try
+			{
+				if (parking.isEmpty(new Position(vehicleToMove.getVehiclePosition().getX(),vehicleToMove.getVehiclePosition().getY()+1)))
+				{
+					vehicleToMove.updatePosition(new Position(vehicleToMove.getVehiclePosition().getX(),vehicleToMove.getVehiclePosition().getY()+1));
+					return true;
+				}
+			} catch (OutOfRangeException e)
+			{
+				e.printStackTrace();
+			}
+		return false;
+		
 	}
 	
+	/**
+	 * Move the vehicle backward
+	 * @param vehicleToMove
+	 * @return if the vehicle mooved right
+	 */
+	private boolean backward(Vehicle vehicleToMove)
+	{
+		if (vehicleToMove.getOrientation()== Orientation.HORIZONTAL)
+			try
+			{
+				if (parking.isEmpty(new Position(vehicleToMove.getVehiclePosition().getX()-(vehicleToMove.getVehicleType().getLength())-1,vehicleToMove.getVehiclePosition().getY())))
+				{
+					vehicleToMove.updatePosition(new Position(vehicleToMove.getVehiclePosition().getX()-(vehicleToMove.getVehicleType().getLength())-1,vehicleToMove.getVehiclePosition().getY()));
+					return true;
+				}
+			} catch (OutOfRangeException e)
+			{
+				e.printStackTrace();
+			}
+		if (vehicleToMove.getOrientation()== Orientation.VERTICAL)
+			try
+			{
+				if (parking.isEmpty(new Position(vehicleToMove.getVehiclePosition().getX(),vehicleToMove.getVehiclePosition().getY()-(vehicleToMove.getVehicleType().getLength())-1)))
+				{
+					vehicleToMove.updatePosition(new Position(vehicleToMove.getVehiclePosition().getX(),vehicleToMove.getVehiclePosition().getY()-(vehicleToMove.getVehicleType().getLength())-1));
+					return true;
+				}
+			} catch (OutOfRangeException e)
+			{
+				e.printStackTrace();
+			}
+		return false;
+		
+	}
+	
+	/**
+	 * @return
+	 */
 	private boolean finished()
 	{
 		if (parking.getVehicleToRelease().isOn(new Position(6, 3)))
