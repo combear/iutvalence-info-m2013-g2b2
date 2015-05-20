@@ -24,6 +24,15 @@ public class Vehicle
 	
 
 	
+	public Position getVehiclePosition()
+	{
+		return vehiclePosition;
+	}
+
+
+
+
+
 	/**
 	 * Constructor for a Car object used as the head of the car
 	 * @param vehicleType : Size of the vehicle
