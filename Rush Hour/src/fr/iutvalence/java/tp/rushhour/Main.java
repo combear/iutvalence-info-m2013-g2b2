@@ -22,10 +22,12 @@ public class Main
 		vehicles[4]= new Vehicle(VehicleType.TRUCK, Orientation.HORIZONTAL,4,4);
 		vehicles[5]= new Vehicle(VehicleType.CAR, Orientation.VERTICAL,4,3);
 		vehicles[6]= new Vehicle(VehicleType.CAR, Orientation.VERTICAL,5,6);
-		
 		RushHourParking parking = new RushHourParking(vehicles, vehicleToFree);
 		RushHourGame game = new RushHourGame(parking);
-		game.play();
+		DisplayConsole grid= new DisplayConsole();
+		System.out.println(grid.createGrid());
+		
+		
 	}
 
 }
